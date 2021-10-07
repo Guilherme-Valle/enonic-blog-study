@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
     <display-name>Posts List</display-name>
+    <form>
+        <input name="posts-folder" type="ContentSelector">
+            <label>Posts folder</label>
+            <help-text>Please select the folder where the posts content type are located.</help-text>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>base:folder</allowContentType>
+                <allowPath>${site}</allowPath>
+                <treeMode>true</treeMode>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+
+        <input name="post-delete-page" type="ContentSelector">
+            <label>Post delete</label>
+            <help-text>Please select the folder where the posts is going to be deleted</help-text>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>base:folder</allowContentType>
+                <allowPath>${site}</allowPath>
+                <treeMode>true</treeMode>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+
+        <input name="post-update-page" type="ContentSelector">
+            <label>Post update</label>
+            <help-text>Please select the folder where the post is going to be updated.</help-text>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>base:folder</allowContentType>
+                <allowPath>${site}</allowPath>
+                <treeMode>true</treeMode>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+
+    </form>
 </part>

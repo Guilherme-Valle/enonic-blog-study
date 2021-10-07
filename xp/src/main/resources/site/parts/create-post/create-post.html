@@ -1,0 +1,32 @@
+<div class="form">
+    <form method="post" th:action="${serviceUrl}">
+        <input type="hidden" name="posts-folder-path" th:value="${config.postsFolderPath}">
+
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" required>
+
+        <label>Short title</label>
+        <input type="text" name="short-title" class="form-control" required>
+
+        <label>Html</label>
+        <textarea name="html" class="form-control"></textarea>
+
+        <label>Autor</label>
+        <select name="author" class="form-control">
+            <option th:each="author : ${data.authors}"
+                    th:value="${author.id}">
+                [[ ${author.name} ]]
+            </option>
+        </select>
+
+        <label>Categoria</label>
+        <select name="category" class="form-control" multiple>
+            <option th:each="category : ${data.categories}"
+                    th:value="${category.id}">
+                [[ ${category.title} ]]
+            </option>
+        </select>
+
+        <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+    </form>
+</div>

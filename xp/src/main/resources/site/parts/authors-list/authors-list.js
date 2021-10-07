@@ -12,8 +12,7 @@ exports.get = function(req) {
         var authorsData = content.getChildren({
             key: currentContent._path,
             start: 0,
-            count: -1,
-            contentTypes: ['author']
+            count: -1
         })
 
         for (var i = 0; i < authorsData.hits.length; i++){

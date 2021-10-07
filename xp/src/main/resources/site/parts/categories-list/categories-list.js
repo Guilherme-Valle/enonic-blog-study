@@ -12,8 +12,7 @@ exports.get = function(req) {
         var categoriesData = content.getChildren({
             key: currentContent._path,
             start: 0,
-            count: -1,
-            contentTypes: ['category']
+            count: -1
         })
 
         for (var i = 0; i < categoriesData.hits.length; i++){

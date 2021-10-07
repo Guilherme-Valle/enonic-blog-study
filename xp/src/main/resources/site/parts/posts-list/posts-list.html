@@ -3,6 +3,8 @@
     <ul>
         <li th:each="post : ${posts}">
             <h4> <a data-th-href="${post.href}"> [[ ${post.data.title} ]] </a> Author: [[ ${post.author.name} ]]</h4>
+            <button th:href="${config.pageUpdate} + '?id=' + ${post._id}">Update</button>
+            <button th:href="${config.pageDelete} + '?id=' + ${post._id}">Delete</button>
         </li>
     </ul>
 </div>

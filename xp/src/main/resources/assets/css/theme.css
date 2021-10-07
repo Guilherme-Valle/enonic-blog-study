@@ -14,3 +14,7 @@ body {
 .details ul li {
   margin-bottom: 10px;
 }
+
+.form * {
+  margin-top: 5px;
+}
