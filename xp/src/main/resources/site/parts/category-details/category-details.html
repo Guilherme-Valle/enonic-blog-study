@@ -1,0 +1,7 @@
+<div class="details">
+    <ul th:if="${show}">
+        <li><img th:if="${category.image}" th:src="${category.image}" th:alt="${category.title}" width="200" height="200"></li>
+        <li>Title: <span>[[ ${category.title} ]]</span></li>
+        <li>Description: <span>[[ ${category.description} ]]</span></li>
+    </ul>
+</div>

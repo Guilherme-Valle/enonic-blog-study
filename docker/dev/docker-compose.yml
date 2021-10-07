@@ -1,0 +1,38 @@
+version: "3.2"
+services:
+  myproject-xp-app:
+    container_name: myproject-xp-app
+    build:
+      context: ./xp-app
+      args:
+        REPO: ""
+    image: "myproject-xp-image:7.6.0"
+    ports:
+      - "8080:8080"
+      - "3005:3005"
+      - "3006:3006"
+    volumes:
+      - type: volume
+        source: myproject-xp-home
+        target: /enonic-xp/home
+      - type: volume
+        source: myproject-gradle
+        target: /root/.gradle
+      - type: bind
+        source: ../../xp
+        target: /enonic-xp/source
+      - type: bind
+        source: ./xp-home/config
+        target: /enonic-xp/home/config
+    networks:
+      - myproject-network
+  myproject-smtp:
+    container_name: myproject-smtp
+    image: ixdotai/smtp
+    networks:
+      - myproject-network
+volumes:
+  myproject-xp-home:
+  myproject-gradle:
+networks:
+  myproject-network:

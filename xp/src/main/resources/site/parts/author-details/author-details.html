@@ -1,0 +1,15 @@
+<div class="details">
+    <ul th:if="${show}">
+        <li><img th:if="${author.image}" th:src="${author.image}" th:alt="${author.name}" width="200" height="200"></li>
+        <li>Name: <span>[[ ${author.name} ]]</span></li>
+        <li>Description: <span>[[ ${author.description} ]]</span></li>
+        <li>Email: <span>[[ ${author.email} ]]</span></li>
+        <li>
+            <ul>
+                <li th:each="role : ${author.role}">
+                    [[ ${role} ]]
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

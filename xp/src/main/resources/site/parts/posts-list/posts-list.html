@@ -1,0 +1,8 @@
+<div class="posts-list">
+    <h2>Posts of blog:</h2>
+    <ul>
+        <li th:each="post : ${posts}">
+            <h4> <a data-th-href="${post.href}"> [[ ${post.data.title} ]] </a> Author: [[ ${post.author.name} ]]</h4>
+        </li>
+    </ul>
+</div>

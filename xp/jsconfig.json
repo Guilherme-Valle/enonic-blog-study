@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "baseUrl": "./src/main/resources",
+    "moduleResolution": "node",
+    "paths": {
+      "/lib/xp/*": [
+        "../../../build/libs/xp/*"
+      ],
+      "/lib/api/*": [
+        "./lib/api/*"
+      ],
+      "/lib/config/*": [
+        "./lib/config/*"
+      ],
+      "/lib/extension/*": [
+        "./lib/extension/*"
+      ],
+      "/lib/external/*": [
+        "./lib/external/*"
+      ],
+      "/lib/java/*": [
+        "./lib/java/*"
+      ],
+      "/lib/modules/*": [
+        "./lib/modules/*"
+      ],
+      "/lib/util/*": [
+        "./lib/util/*"
+      ],
+      "/lib/*": [
+        "../../../build/libs/*"
+      ],
+      "/*": [
+        "*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "**/assets/*",
+    "**/build/*",
+    "**/bin/*",
+  ]
+}

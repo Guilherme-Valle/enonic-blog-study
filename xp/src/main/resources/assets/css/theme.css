@@ -1,0 +1,16 @@
+body {
+  background-color: lightgray;
+}
+
+.details {
+  border: 1px solid gray;
+  padding: 25px;
+}
+
+.details ul {
+  list-style: none;
+}
+
+.details ul li {
+  margin-bottom: 10px;
+}

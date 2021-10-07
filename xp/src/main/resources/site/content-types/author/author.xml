@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+    <display-name>Author</display-name>
+    <description>Author of a blog post</description>
+    <super-type>base:structured</super-type>
+    <content-display-name-script>$('name')</content-display-name-script>
+    <form>
+        <input type="TextLine" name="name">
+            <label>Name</label>
+            <occurrences minimum="1" maximum="1"/>
+        </input>
+
+        <input type="TextArea" name="description">
+            <label>Description</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+
+        <input type="ImageSelector" name="image">
+            <label>Image</label>
+            <occurrences minimum="0" maximum="1"/>
+        </input>
+
+        <input type="TextLine" name="email">
+            <label>Email</label>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <regexp>
+                    [a-z-A-Z]{3,}@[a-z-A-Z]{3,}\.[a-z-A-Z]{2,4}
+                </regexp>
+            </config>
+        </input>
+
+        <input name="role" type="ComboBox">
+            <label>Role (Optional)</label>
+            <occurrences minimum="0" maximum="0"/>
+            <config>
+                <option value="writer">Writer</option>
+                <option value="editor">Editor</option>
+                <option value="reviewer">Reviewer</option>
+            </config>
+        </input>
+    </form>
+</content-type>

@@ -1,0 +1,13 @@
+<div class="details" th:if="${show}">
+    <p><img th:if="${post.image}" th:src="${post.image}" th:alt="${post.title}" width="350" height="350"></p>
+    <h1>Title: <span>[[ ${post.title} ]]</span></h1>
+    <h4>Short title: <span>[[ ${post['short-title']} ]]</span></h4>
+    <h5>Author: <span>[[ ${post.author.name} ]]</span></h5>
+    <h5>Categories:</h5>
+    <ul>
+        <li th:each="category : ${post.categories}">
+            [[ ${category.title} ]]
+        </li>
+    </ul>
+    <div data-th-utext="${portal.processHtml({'_value=' + post.html})}"></div>
+</div>

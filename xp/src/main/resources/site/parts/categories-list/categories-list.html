@@ -1,0 +1,8 @@
+<div class="authors-list">
+    <h2>Categories of blog:</h2>
+    <ul>
+        <li th:each="category : ${categories}">
+            <h4> <a data-th-href="${category.href}"> [[ ${category.data.title} ]] </a> ([[ ${category.data.description} ]])</h4>
+        </li>
+    </ul>
+</div>
