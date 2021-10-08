@@ -1,8 +1,37 @@
-<div class="authors-list">
-    <h2>Categories of blog:</h2>
-    <ul>
-        <li th:each="category : ${categories}">
-            <h4> <a data-th-href="${category.href}"> [[ ${category.data.title} ]] </a> ([[ ${category.data.description} ]])</h4>
-        </li>
-    </ul>
+<div class="default-list">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="row"></th>
+            <th scope="row">
+                Title
+            </th>
+            <th scope="row">
+                Email
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="category : ${categories}">
+            <td>
+                <a data-th-href="${category.href}">
+                    <span class="material-icons">
+                        north_west
+                    </span>
+                </a>
+            </td>
+
+            <td>
+                [[ ${category.data.title} ]]
+            </td>
+
+            <td>
+                [[ ${category.data.description} ]]
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+

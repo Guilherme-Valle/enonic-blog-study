@@ -36,7 +36,6 @@ exports.get = function(req) {
     }
 
     const post = getPostData();
-    log.info(JSON.stringify(post, null, 4))
 
     var model = {
         post,

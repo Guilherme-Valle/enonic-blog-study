@@ -1,10 +1,52 @@
-<div class="posts-list">
-    <h2>Posts of blog:</h2>
-    <ul>
-        <li th:each="post : ${posts}">
-            <h4> <a data-th-href="${post.href}"> [[ ${post.data.title} ]] </a> Author: [[ ${post.author.name} ]]</h4>
-            <button th:href="${config.pageUpdate} + '?id=' + ${post._id}">Update</button>
-            <button th:href="${config.pageDelete} + '?id=' + ${post._id}">Delete</button>
-        </li>
-    </ul>
+<div class="default-list">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="row"></th>
+            <th scope="row">
+                Title
+            </th>
+            <th scope="row">
+                Short title
+            </th>
+            <th scope="row">
+                Author
+            </th>
+            <th scope="row"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td>
+                <a data-th-href="${post.href}">
+                    <span class="material-icons">
+                        north_west
+                    </span>
+                </a>
+
+            </td>
+            <td>
+                [[ ${post.data.title} ]]
+            </td>
+            <td>
+                [[ ${post.data['short-title']} ]]
+            </td>
+            <td>
+                [[ ${post.author.name} ]]
+            </td>
+            <td style="text-align: right">
+                <button th:href="${config.pageUpdate} + '?id=' + ${post._id}">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </button>
+                <button th:href="${config.pageDelete} + '?id=' + ${post._id}">
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>

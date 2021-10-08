@@ -17,6 +17,9 @@
     <link data-th-href="${portal.assetUrl({'_path=bootstrap/4.6.0/css/bootstrap.min.css'})}"
           href="../assets/css/bootstrap-theme.min.css" rel="stylesheet"/>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+
     <!-- Custom styles for this template -->
     <link data-th-href="${portal.assetUrl({'_path=css/theme.css'})}" href="../assets/css/theme.css" rel="stylesheet"/>
 
@@ -32,6 +35,26 @@
 <body role="document">
 
 <!-- Fixed navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Enonic Tutorial Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" th:classappend="${pagePath == 'posts' ? 'active' : ''}">
+                <a class="nav-link" th:href="${pagesUrls.posts}">Posts</a>
+            </li>
+            <li class="nav-item" th:classappend="${pagePath == 'authors' ? 'active' : ''}">
+                <a class="nav-link"  th:href="${pagesUrls.authors}">Authors</a>
+            </li>
+            <li class="nav-item" th:classappend="${pagePath == 'categories' ? 'active' : ''}">
+                <a class="nav-link"  th:href="${pagesUrls.categories}">Categories</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container theme-showcase" role="main" data-th-attr="data-portal-region=${mainRegion.name}">
 
     <div data-th-each="component : ${mainRegion.components}" data-th-remove="tag">

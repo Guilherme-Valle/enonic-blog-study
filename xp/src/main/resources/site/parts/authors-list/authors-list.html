@@ -1,8 +1,36 @@
-<div class="authors-list">
-    <h2>Authors of website:</h2>
-    <ul>
-        <li th:each="author : ${authors}">
-            <h4> <a data-th-href="${author.href}"> [[ ${author.data.name} ]] </a> ([[ ${author.data.email} ]])</h4>
-        </li>
-    </ul>
+<div class="default-list">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="row"></th>
+            <th scope="row">
+                Name
+            </th>
+            <th scope="row">
+                Email
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author : ${authors}">
+            <td>
+                <a data-th-href="${author.href}">
+                    <span class="material-icons">
+                        north_west
+                    </span>
+                </a>
+            </td>
+
+            <td>
+                [[ ${author.data.name} ]]
+            </td>
+
+            <td>
+                [[ ${author.data.email} ]]
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
 </div>
+

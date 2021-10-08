@@ -24,8 +24,6 @@ exports.get = function (req) {
             });
         }
 
-        log.info(JSON.stringify(postsData, null, 4))
-
         return postsData;
     }
 
