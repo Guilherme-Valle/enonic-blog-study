@@ -22,11 +22,11 @@ const createPost = data => {
 
 const updatePost = data => {
     function editor (post){
-        post.title = data.title;
-        post['sub-title'] = data['sub-title'];
-        post.html = data.html;
-        post.category = data.category;
-        post.author = data.author;
+        post.data.title = data.title;
+        post.data['sub-title'] = data['sub-title'];
+        post.data.html = data.html;
+        post.data.category = data.category;
+        post.data.author = data.author;
         log.info(JSON.stringify(post, null, 4));
         return post;
     }
