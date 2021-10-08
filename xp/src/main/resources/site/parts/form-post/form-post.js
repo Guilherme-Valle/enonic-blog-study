@@ -26,19 +26,26 @@ const getAuthors = function () {
 
 exports.get = function (req) {
 
-    var currentContent = portal.getContent();
+    const params = req.params;
+    let post = {}
+    let action = 'create';
 
     const categories = getCategories();
     const authors = getAuthors();
-    log.info(JSON.stringify(req, null, 4));
+
+    if (params.id){
+        post = content.get({ key: params.id });
+        log.info(JSON.stringify(post, null, 4));
+        action = 'update'
+    }
 
     // Specify the view file to use
-    var view = resolve('create-post.html');
 
     var model = {
         data: {
             authors,
-            categories
+            categories,
+            post
         },
         config: {
             postsFolderPath: '/bootstrap-starter/posts',
@@ -47,10 +54,12 @@ exports.get = function (req) {
         serviceUrl: portal.serviceUrl({
             service: 'crud-post',
             params: {
-                action: 'create'
+                action: action
             }
         })
     }
+
+    var view = resolve('form-post.html');
 
     // Return the merged view and model in the response object
     return {

@@ -2,18 +2,19 @@
     <form method="post" th:action="${serviceUrl}">
         <input type="hidden" name="posts-folder-path" th:value="${config.postsFolderPath}">
         <input type="hidden" name="redirect-to" th:value="${config.redirectTo}">
+        <input type="hidden" name="id" th:if="${data.post._id}" th:value="${data.post._id}">
 
         <label>Title</label>
-        <input type="text" name="title" class="form-control" required>
+        <input type="text" name="title" class="form-control" th:value="${data.post.data.title}" required>
 
         <label>Short title</label>
-        <input type="text" name="short-title" class="form-control" required>
+        <input type="text" name="short-title" class="form-control" th:value="${data.post.data['short-title']}" required>
 
         <label>Html</label>
-        <textarea name="html" class="form-control"></textarea>
+        <textarea name="html" class="form-control"><span th:if="${data.post.data.html}" th:remove="tag">[[ ${data.post.data.html} ]]</span></textarea>
 
         <label>Autor</label>
-        <select name="author" class="form-control">
+        <select name="author" class="form-control" th:value="${data.post.data.author}">
             <option th:each="author : ${data.authors}"
                     th:value="${author.id}">
                 [[ ${author.name} ]]
@@ -21,7 +22,8 @@
         </select>
 
         <label>Categoria</label>
-        <select name="category" class="form-control" multiple>
+        <select name="category" class="form-control" multiple
+                th:value="${data.post.data.category}">
             <option th:each="category : ${data.categories}"
                     th:value="${category.id}">
                 [[ ${category.title} ]]

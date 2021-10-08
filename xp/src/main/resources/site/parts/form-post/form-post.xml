@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <part>
-    <display-name>Create post</display-name>
+    <display-name>Form post</display-name>
     <form>
         <input name="redirect-to" type="ContentSelector">
             <label>Posts folder</label>

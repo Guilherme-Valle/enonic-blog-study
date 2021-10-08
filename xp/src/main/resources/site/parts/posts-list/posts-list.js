@@ -6,6 +6,7 @@ var content = require('/lib/xp/content')
 exports.get = function (req) {
     const component = portal.getComponent() || {};
     const config = component.config || {};
+    const formPostPath = '/bootstrap-starter/forms/form-post'
 
     // Get the country content as a JSON object
     const getPostsData = () => {
@@ -41,11 +42,19 @@ exports.get = function (req) {
     // Specify the view file to use
     var view = resolve('posts-list.html');
 
+    let posts = getPostsData();
+    for (var i = 0; i < posts.length; i++){
+        posts[i].edit = portal.pageUrl({path: formPostPath, params: { id: posts[i]._id } })
+    }
+
+    log.info(JSON.stringify(posts, null, 4));
+
     var model = {
-        posts: getPostsData(),
+        posts,
         config: getPagesData(),
-        createPost: portal.pageUrl({path: '/bootstrap-starter/forms/create-post'}),
-        deleteFunction: portal.serviceUrl({
+        createPost: portal.pageUrl({path: formPostPath}),
+        formPostPath,
+        deletePost: portal.serviceUrl({
             service: 'crud-post',
             params: {
                 action: 'delete'

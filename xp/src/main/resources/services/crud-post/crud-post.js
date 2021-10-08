@@ -20,6 +20,31 @@ const createPost = data => {
     });
 }
 
+const updatePost = data => {
+    function editor (post){
+        post.title = data.title;
+        post['sub-title'] = data['sub-title'];
+        post.html = data.html;
+        post.category = data.category;
+        post.author = data.author;
+        log.info(JSON.stringify(post, null, 4));
+        return post;
+    }
+
+    const result = content.modify({
+        key: data.id,
+        editor: editor
+    });
+
+    log.info(JSON.stringify(result, null, 4));
+
+    if (result){
+        log.info("Content with id " + data.id + " modified with success!");
+    } else {
+        log.info("Error in modify!");
+    }
+}
+
 const deletePost = data => {
     const result = content.delete({
         key: data.id
@@ -54,6 +79,9 @@ exports.post = req => {
     switch (action){
         case "create":
             createPost(data);
+            break;
+        case "update":
+            updatePost(data);
             break;
         case "delete":
             deletePost(data);

@@ -35,16 +35,16 @@
                 [[ ${post.author.name} ]]
             </td>
             <td style="text-align: right">
-                <button th:href="${config.pageUpdate}">
+                <a th:href="${post.edit}">
+                    <button>
                     <span class="material-icons">
                         edit
                     </span>
-                </button>
-                <form method="post" th:action="${deleteFunction}"
-                      style="display: inline !important;">
+                    </button>
+                </a>
+                <form method="post" th:action="${deletePost}" style="display: inline !important;">
                     <input type="hidden" name="id" th:value="${post._id}">
                     <input type="hidden" name="redirect-to" th:value="${config.redirectTo}">
-
                     <button type="submit">
                     <span class="material-icons">
                         delete
