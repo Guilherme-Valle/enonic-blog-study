@@ -43,7 +43,14 @@ exports.get = function (req) {
 
     var model = {
         posts: getPostsData(),
-        config: getPagesData()
+        config: getPagesData(),
+        createPost: portal.pageUrl({path: '/bootstrap-starter/forms/create-post'}),
+        deleteFunction: portal.serviceUrl({
+            service: 'crud-post',
+            params: {
+                action: 'delete'
+            }
+        })
     }
 
     // Return the merged view and model in the response object

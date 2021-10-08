@@ -35,16 +35,35 @@
                 [[ ${post.author.name} ]]
             </td>
             <td style="text-align: right">
-                <button th:href="${config.pageUpdate} + '?id=' + ${post._id}">
+                <button th:href="${config.pageUpdate}">
                     <span class="material-icons">
                         edit
                     </span>
                 </button>
-                <button th:href="${config.pageDelete} + '?id=' + ${post._id}">
+                <form method="post" th:action="${deleteFunction}"
+                      style="display: inline !important;">
+                    <input type="hidden" name="id" th:value="${post._id}">
+                    <button type="submit">
                     <span class="material-icons">
                         delete
                     </span>
-                </button>
+                    </button>
+                </form>
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align: right">
+                <a th:href="${createPost}">
+                    <button class="btn btn-primary">
+                        Create new post
+                    </button>
+                </a>
+
             </td>
         </tr>
         </tbody>

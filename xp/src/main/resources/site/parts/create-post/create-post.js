@@ -29,6 +29,7 @@ exports.get = function (req) {
     var currentContent = portal.getContent();
     const categories = getCategories();
     const authors = getAuthors();
+    log.info(JSON.stringify(req, null, 4))
 
     // Specify the view file to use
     var view = resolve('create-post.html');
@@ -41,7 +42,12 @@ exports.get = function (req) {
         config: {
             postsFolderPath: '/bootstrap-starter/posts'
         },
-        serviceUrl: portal.serviceUrl({service: 'crud-post'})
+        serviceUrl: portal.serviceUrl({
+            service: 'crud-post',
+            params: {
+                action: 'create'
+            }
+        })
     }
 
     // Return the merged view and model in the response object
