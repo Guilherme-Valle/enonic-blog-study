@@ -60,4 +60,8 @@ exports.post = req => {
             break;
     }
 
+    return {
+        redirect: data['redirect-to']
+    }
+
 };

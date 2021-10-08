@@ -29,11 +29,11 @@ exports.get = function (req) {
 
     const getPagesData = () => {
         const pageUpdate = config['post-update-page'] || '';
-        const pageDelete = config['post-delete-page'] || '';
+        const pageDelete = config['redirect-to'] || '';
 
         return {
             pageUpdate: portal.pageUrl({id: pageUpdate}),
-            pageDelete: portal.pageUrl({id: pageDelete})
+            redirectTo: portal.pageUrl({id: pageDelete})
         }
 
     }

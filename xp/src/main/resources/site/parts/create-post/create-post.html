@@ -1,6 +1,7 @@
 <div class="form">
     <form method="post" th:action="${serviceUrl}">
         <input type="hidden" name="posts-folder-path" th:value="${config.postsFolderPath}">
+        <input type="hidden" name="redirect-to" th:value="${config.redirectTo}">
 
         <label>Title</label>
         <input type="text" name="title" class="form-control" required>

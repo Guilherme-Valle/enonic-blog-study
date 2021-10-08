@@ -43,6 +43,8 @@
                 <form method="post" th:action="${deleteFunction}"
                       style="display: inline !important;">
                     <input type="hidden" name="id" th:value="${post._id}">
+                    <input type="hidden" name="redirect-to" th:value="${config.redirectTo}">
+
                     <button type="submit">
                     <span class="material-icons">
                         delete

@@ -38,5 +38,17 @@
             </config>
         </input>
 
+        <input name="redirect-to" type="ContentSelector">
+            <label>Posts folder</label>
+            <help-text>Please select the folder where the user will be redirected</help-text>
+            <occurrences minimum="1" maximum="1"/>
+            <config>
+                <allowContentType>base:folder</allowContentType>
+                <allowPath>${site}</allowPath>
+                <treeMode>true</treeMode>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+
     </form>
 </part>
