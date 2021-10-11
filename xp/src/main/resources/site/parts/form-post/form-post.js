@@ -27,7 +27,10 @@ const getAuthors = function () {
 exports.get = function (req) {
 
     const params = req.params;
-    let post = {}
+    let post = {
+        data: {}
+    }
+
     let action = 'create';
 
     const categories = getCategories();
