@@ -16,6 +16,7 @@
         <label>Autor</label>
         <select name="author" class="form-control" th:value="${data.post.data.author}">
             <option th:each="author : ${data.authors}"
+                    th:selected="${author.id == data.post.data.author}"
                     th:value="${author.id}">
                 [[ ${author.name} ]]
             </option>

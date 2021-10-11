@@ -30,7 +30,6 @@ exports.get = function (req) {
     let post = {
         data: {}
     }
-
     let action = 'create';
 
     const categories = getCategories();
