@@ -4,6 +4,13 @@ var content = require('/lib/xp/content')
 
 // Handle the GET request
 
+const forceArray = function (data){
+    if (!Array.isArray(data)) {
+        data = [data];
+    }
+    return data;
+}
+
 const getCategories = function () {
     return content.query({
         start: 0,
@@ -24,6 +31,11 @@ const getAuthors = function () {
     }).sort((a, b) => a.name.localeCompare(b.name));
 }
 
+const checkSelectedCategory = (categoryId, selectedValue) => {
+    log.info("entrou");
+    return (Array(selectedValue) && selectedValue.includes(categoryId)) || selectedValue == categoryId;
+}
+
 exports.get = function (req) {
 
     const params = req.params;
@@ -37,6 +49,7 @@ exports.get = function (req) {
 
     if (params.id){
         post = content.get({ key: params.id });
+        post.data.category = forceArray(post.data.category);
         log.info(JSON.stringify(post, null, 4));
         action = 'update'
     }
@@ -49,6 +62,7 @@ exports.get = function (req) {
             categories,
             post
         },
+        checkSelectedCategory,
         config: {
             postsFolderPath: '/bootstrap-starter/posts',
             redirectTo: portal.pageUrl({ id: portal.getComponent().config['redirect-to'] || '' }) || '/'

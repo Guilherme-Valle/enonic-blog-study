@@ -23,9 +23,11 @@
         </select>
 
         <label>Categoria</label>
-        <select name="category" class="form-control" multiple
-                th:value="${data.post.data.category}">
+        <select name="category" class="form-control" multiple="multiple"
+                th:field="*{data.post.data.category}">
             <option th:each="category : ${data.categories}"
+                    th:field="*{data.post.data.category}"
+                    th:selected="${data.post.data.category.contains(category.id)}"
                     th:value="${category.id}">
                 [[ ${category.title} ]]
             </option>
